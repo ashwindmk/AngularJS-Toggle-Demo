@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="toggleApp">
+    <head>
+        <title> Show Toggle </title>
+        <style>
+            html, body {
+                height: 100%;
+            }
+            html {
+                display: table;
+                margin: auto;
+            }
+            body {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            button {
+                padding: 5px;
+                font-size: 9px;
+            }
+            .shown {
+                display: block;
+                width: 200px;
+                height: 100px;
+                background-color: gray;
+                color: white;
+                margin-top: 20px;
+                text-align: center;
+                padding-top: 90px;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="toggleapp.js"></script>
+    </head>
+    <body ng-controller="toggleController as controller">
+        <button ng-show="!controller.toggle" ng-click="controller.toggle = !controller.toggle"> SHOW </button>
+        <button ng-show="controller.toggle" ng-click="controller.toggle = !controller.toggle"> HIDE </button>
+        <div ng-class="controller.toggle ? 'shown' : 'hidden'">
+            Hello world
+        </div>
+    </body>
+</html>
